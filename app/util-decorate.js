@@ -1,12 +1,9 @@
-const chalk  = require('chalk');
-const table  = require('text-table');
+const chalk = require('chalk');
+const esc   = require('escape-string-regexp');
+const table = require('text-table');
 
 module.exports = function(config, options, rows) {
   
-  // regexes used for search pattern-matches
-  const global  = new RegExp(options['--search'], 'gi');
-  const local   = new RegExp(options['--search'], 'i');
-
   // transform each row into a formatted string
   const transformed = rows.map(function(row) {
 
@@ -18,6 +15,8 @@ module.exports = function(config, options, rows) {
 
     // highlight matches if --search was provided
     if (options['--search']) {
+      const global = new RegExp(esc(options['--search'], 'gi'));
+      const local  = new RegExp(esc(options['--search'], 'i'));
       entry.match(global).forEach(function(m) {
         entry = entry.replace(local, chalk[config.color.match](m));
       });

@@ -18,7 +18,7 @@ module.exports = function(callback) {
   // query to populate the table with some records
   const insert = [
     'INSERT INTO Log (entry, timestamp) VALUES',
-      '("foo", ?),',
+      '("foo +test", ?),',
       '("bar", ?),',
       '("baz", ?)',
   ].join(' ');

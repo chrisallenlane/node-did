@@ -23,7 +23,7 @@ test('cmd-edit: should edit a log entry (entry via cli)', function(t) {
         t.notOk(err);
         t.equals(rows.length, 3);
         t.equals(rows[0].id, 1);
-        t.equals(rows[0].entry, 'foo');
+        t.equals(rows[0].entry, 'foo +test');
         t.equals(rows[1].id, 2);
         t.equals(rows[1].entry, 'bar');
         t.equals(rows[2].id, 3);
@@ -54,7 +54,7 @@ test('cmd-edit: should edit a log entry (entry via editor)', function(t) {
         t.notOk(err);
         t.equals(rows.length, 3);
         t.equals(rows[0].id, 1);
-        t.equals(rows[0].entry, 'foo');
+        t.equals(rows[0].entry, 'foo +test');
         t.equals(rows[1].id, 2);
         t.equals(rows[1].entry, 'bar');
         t.equals(rows[2].id, 3);

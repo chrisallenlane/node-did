@@ -123,4 +123,18 @@ Db(function(err, db) {
     });
   });
 
+  test('cmd-log: --search flag', function(t) {
+    t.plan(3);
+    const options = {
+      '--search' : '+test',
+    };
+
+    log(config, options, db, function(err, output) {
+      const lines = output.split(eol);
+      t.notOk(err);
+      t.equals(lines.length, 1);
+      t.notEquals(lines[0].indexOf('foo'), -1);
+    });
+  });
+
 });

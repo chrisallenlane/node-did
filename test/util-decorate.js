@@ -15,15 +15,14 @@ Db(function(err, db) {
   test('util-decorate: should return formatted rows', function(t) {
     t.plan(8);
 
-    const options = { '--search' : [] };
-    const query   = 'SELECT * FROM Log';
+    const query = 'SELECT * FROM Log';
 
     // query some records
     db.all(query, function(err, rows) {
       t.notOk(err);
 
       // and decorate them
-      const decorated = decorate(config, options, rows).split(eol);
+      const decorated = decorate(config, {}, rows).split(eol);
       t.equals(decorated.length, 3);
       t.equals(decorated[0].indexOf('1'), 0);
       t.notEquals(decorated[0].indexOf('foo'), -1);
