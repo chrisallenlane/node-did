@@ -1,6 +1,7 @@
 const Db       = require('./mock/db');
 const config   = require('./mock/config');
 const decorate = require('../app/util-decorate');
+const eol      = require('os').EOL;
 const test     = require('tape');
 
 Db(function(err, db) {
@@ -22,7 +23,7 @@ Db(function(err, db) {
       t.notOk(err);
 
       // and decorate them
-      const decorated = decorate(config, options, rows).split('\n');
+      const decorated = decorate(config, options, rows).split(eol);
       t.equals(decorated.length, 3);
       t.equals(decorated[0].indexOf('1'), 0);
       t.notEquals(decorated[0].indexOf('foo'), -1);

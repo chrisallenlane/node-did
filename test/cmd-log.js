@@ -1,5 +1,6 @@
 const Db     = require('./mock/db');
 const config = require('./mock/config');
+const eol    = require('os').EOL;
 const log    = require('../app/cmd-log');
 const test   = require('tape');
 
@@ -17,7 +18,7 @@ Db(function(err, db) {
     const options = {};
 
     log(config, options, db, function(err, output) {
-      const lines = output.split('\n');
+      const lines = output.split(eol);
       t.notOk(err);
       t.equals(lines.length, 3);
       t.notEquals(lines[2].indexOf('foo'), -1);
@@ -33,7 +34,7 @@ Db(function(err, db) {
     };
 
     log(config, options, db, function(err, output) {
-      const lines = output.split('\n');
+      const lines = output.split(eol);
       t.notOk(err);
       t.equals(lines.length, 1);
       t.notEquals(lines[0].indexOf('baz'), -1);
@@ -47,7 +48,7 @@ Db(function(err, db) {
     };
 
     log(config, options, db, function(err, output) {
-      const lines = output.split('\n');
+      const lines = output.split(eol);
       t.notOk(err);
       t.equals(lines.length, 3);
       t.notEquals(lines[0].indexOf('foo'), -1);
@@ -63,7 +64,7 @@ Db(function(err, db) {
     };
 
     log(config, options, db, function(err, output) {
-      const lines = output.split('\n');
+      const lines = output.split(eol);
       t.notOk(err);
       t.equals(lines.length, 2);
       t.notEquals(lines[0].indexOf('baz'), -1);
@@ -71,7 +72,7 @@ Db(function(err, db) {
     });
   });
 
-  test('cmd-log: --from flag - should throw on invalid date', function(t) {
+  test('cmd-log: --from flag - should error on invalid date', function(t) {
     t.plan(1);
     const options = {
       '--from' : 'xxx', 
@@ -89,7 +90,7 @@ Db(function(err, db) {
     };
 
     log(config, options, db, function(err, output) {
-      const lines = output.split('\n');
+      const lines = output.split(eol);
       t.notOk(err);
       t.equals(lines.length, 2);
       t.notEquals(lines[0].indexOf('bar'), -1);
@@ -115,7 +116,7 @@ Db(function(err, db) {
     };
 
     log(config, options, db, function(err, output) {
-      const lines = output.split('\n');
+      const lines = output.split(eol);
       t.notOk(err);
       t.equals(lines.length, 1);
       t.notEquals(lines[0].indexOf('foo'), -1);
