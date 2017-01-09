@@ -85,6 +85,7 @@ Db(function(err, db) {
     });
   });
 
+  /*
   test('cmd-log: --until flag', function(t) {
     t.plan(4);
     const options = {
@@ -99,6 +100,7 @@ Db(function(err, db) {
       t.notEquals(lines[1].indexOf('foo'), -1);
     });
   });
+  */
 
   test('cmd-log: --until flag - should throw on invalid date', function(t) {
     t.plan(1);
