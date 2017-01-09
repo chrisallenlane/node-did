@@ -1,0 +1,51 @@
+{
+  "name": "node-did",
+  "version": "0.0.1",
+  "description": "A dead-simple, cli-based task journaler.",
+  "author": {
+    "name": "Chris Allen Lane",
+    "email": "chris@chris-allen-lane.com"
+  },
+  "license": "MIT",
+  "scripts": {
+    "lint": "jshint app test",
+    "snyk": "snyk test",
+    "test": "tape 'test/*.js' | faucet"
+  },
+  "jshintConfig": {
+    "esnext": true,
+    "expr": true,
+    "laxbreak": true
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "datejs": "^1.0.0-rc3",
+    "docopt": "0.6.2",
+    "expand-tilde": "^2.0.2",
+    "rc": "1.1.6",
+    "sqlite3": "^3.1.8",
+    "text-table": "^0.2.0",
+    "tmp": "0.0.31"
+  },
+  "devDependencies": {
+    "faucet": "0.0.1",
+    "jshint": "2.9.4",
+    "snyk": "^1.20.0",
+    "tape": "^4.6.0"
+  },
+  "keywords": [
+    "task",
+    "journal"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:chrisallenlane/node-did.git"
+  },
+  "bugs": {
+    "url": "https://github.com/chrisallenlane/node-did/issues"
+  },
+  "bin": {
+    "did": "app/index.js"
+  },
+  "main": "app/index.js"
+}

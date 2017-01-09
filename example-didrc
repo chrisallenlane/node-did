@@ -1,0 +1,16 @@
+{
+
+  "database": "~/.did.sqlite3",
+
+  "color": {
+    "id"        : "cyan",
+    "timestamp" : "green",
+    "entry"     : "white",
+    "match"     : "yellow"
+  },
+
+  "dateFormat" : "dd MMM | hh:mm tt",
+
+  "editor"     : "vim"
+}
+

@@ -1,0 +1,50 @@
+did
+
+It helps you remember what you did!
+
+Usage:
+  did edit <id> [<entry>]...
+  did delete <id>
+  did log [options]
+  did [<entry>]...
+
+Options:
+  -h --help             Show this screen.
+  --version             Show version.
+  -s --search=<string>  Search for entries matching <string>.
+  -f --from=<date>      Return entries newer than <date>.
+  -u --until=<date>     Return entries older than <date>.
+  -n --number=<number>  Number of entries to return.
+  -a --ascending        Return entries in ascending order.
+
+Examples:
+
+  To record an entry:
+    did Put new cover sheet on TPS reports
+
+  To record an entry using EDITOR:
+    did
+
+  To view recent entries:
+    did log
+
+  To view recent entries (last 3 only):
+    did log -n3
+
+  To search for entries about TPS reports:
+    did log -s tps
+
+  To search for entries about TPS reports between Monday and today:
+    did log -s tps -f 'last monday' -u 'today'
+
+  To view the above in ascending order (ie, oldest first):
+    did log -s tps -f 'last monday' -u 'today' -a
+
+  To edit entry 10:
+    did edit 10 Located my stapler.
+
+  To edit entry 10 within EDITOR:
+    did edit 10
+
+  To delete entry 10:
+    did delete 10
