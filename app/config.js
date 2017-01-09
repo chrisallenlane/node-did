@@ -1,10 +1,7 @@
-const os   = require('os');
-const path = require('path');
-
 module.exports = require('rc')('did', {
 
   // path to the database
-  database: path.join(os.homedir(), '.did.sqlite3'),
+  database: '~/.did.sqlite3',
 
   // colorized output
   color: {
