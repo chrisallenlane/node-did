@@ -104,6 +104,7 @@ Additional Information
 Additional information can be found in the [wiki][]:
 
 - [Configuring][]
+- [Supported Platforms][]
 
 [Configuring]: https://github.com/chrisallenlane/node-did/wiki/Configuring
 [Supported Platforms]: https://github.com/chrisallenlane/node-did/wiki/Supported-Platforms
