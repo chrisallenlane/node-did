@@ -1,6 +1,6 @@
 {
   "name": "node-did",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A dead-simple, cli-based task journaler.",
   "author": {
     "name": "Chris Allen Lane",
