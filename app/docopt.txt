@@ -1,6 +1,6 @@
 did
 
-It helps you remember what you did!
+A dead-simple, cli-based task journaler.
 
 Usage:
   did edit <id> [<entry>]...
@@ -20,7 +20,7 @@ Options:
 Examples:
 
   To record an entry:
-    did Put new cover sheet on TPS reports
+    did Put new cover sheets on TPS reports
 
   To record an entry using EDITOR:
     did
