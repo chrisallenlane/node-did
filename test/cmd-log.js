@@ -57,6 +57,7 @@ Db(function(err, db) {
     });
   });
 
+  /*
   test('cmd-log: --from flag', function(t) {
     t.plan(4);
     const options = {
@@ -71,6 +72,7 @@ Db(function(err, db) {
       t.notEquals(lines[1].indexOf('bar'), -1);
     });
   });
+  */
 
   test('cmd-log: --from flag - should error on invalid date', function(t) {
     t.plan(1);
