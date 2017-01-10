@@ -1,4 +1,5 @@
 module.exports = function(config, options, db, callback) {
+  console.log(options)
 
   const id    = options['<id>'].join();
   const query = `DELETE FROM Log WHERE id IN (${id})`;
