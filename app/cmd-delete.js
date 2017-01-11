@@ -1,9 +1,10 @@
 module.exports = function(config, options, db, callback) {
+  console.log(options)
 
-  const id    = options['<id>'];
-  const query = 'DELETE FROM Log WHERE id = ?';
+  const id    = options['<id>'].join();
+  const query = `DELETE FROM Log WHERE id IN (${id})`;
 
-  db.run(query, id, function(err) {
+  db.run(query, function(err) {
 
     // fail if an error occured
     if (err) { return callback(err); }
