@@ -79,7 +79,7 @@ To delete entry `2`:
 did delete 2
 ```
 
-To delete entries `2` and `3`
+To delete entries `2` and `3`:
 
 ```sh
 did delete 2 3
