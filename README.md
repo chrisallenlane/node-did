@@ -79,6 +79,12 @@ To delete entry `2`:
 did delete 2
 ```
 
+To delete entries `2` and `3`
+
+```sh
+did delete 2 3
+```
+
 Tagging
 -------
 `did` provides full-text searching on log entries, and thus implicitly supports
