@@ -8,10 +8,10 @@ test('cmd-edit: should edit a log entry (entry via cli)', function(t) {
 
   // mock clean database for each test
   Db(function(err, db) {
-    t.notOk(err, 'could not mock database (1)');
+    t.notOk(err, 'could not mock database');
 
     const options = {
-      '<id>'    : 3,
+      '<id>'    : [ '3' ],
       '<entry>' : [ 'qux' ],
     };
 
@@ -39,10 +39,10 @@ test('cmd-edit: should edit a log entry (entry via editor)', function(t) {
 
   // mock clean database for each test
   Db(function(err, db) {
-    t.notOk(err, 'could not mock database (1)');
+    t.notOk(err, 'could not mock database');
 
     const options = {
-      '<id>'    : 3,
+      '<id>'    : [ '3' ],
       '<entry>' : [],
     };
 
@@ -60,6 +60,25 @@ test('cmd-edit: should edit a log entry (entry via editor)', function(t) {
         t.equals(rows[2].id, 3);
         t.equals(rows[2].entry, 'quux');
       });
+    });
+  });
+
+});
+
+test('cmd-edit: should call back with error when <id> is invalid', function(t) {
+  t.plan(2);
+
+  // mock clean database for each test
+  Db(function(err, db) {
+    t.notOk(err, 'could not mock database');
+
+    const options = {
+      '<id>'    : [ 'foo' ],
+      '<entry>' : [ 'qux' ],
+    };
+
+    edit(config, options, db, function(err) {
+      t.equals(err.message, '<id> is invalid. No log entries updated.');
     });
   });
 

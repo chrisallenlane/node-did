@@ -3,7 +3,7 @@ const editor = require('./util-editor');
 module.exports = function(config, options, db, callback) {
 
   const entry = options['<entry>'].join(' ') || '';
-  const id    = options['<id>'];
+  const id    = options['<id>'][0];
 
   // If the entry was supplied as a command-line argument, insert it
   // immediately
@@ -41,5 +41,17 @@ const update = function(db, id, entry, callback) {
 
   // run the query
   const query = 'UPDATE Log SET entry = ? WHERE id = ?';
-  db.run(query, entry, id, callback);
+  db.run(query, entry, id, function(err) {
+
+    // call back with error on error
+    if (err) { return callback(err); }
+
+    // call back with an error if an invalid <id> was provided
+    if (this.changes === 0) {
+      return callback(new Error('<id> is invalid. No log entries updated.'));
+    }
+
+    // otherwise, the update was successful
+    callback();
+  });
 };
