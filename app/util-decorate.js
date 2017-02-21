@@ -15,8 +15,8 @@ module.exports = function(config, options, rows) {
 
     // highlight matches if --search was provided
     if (options['--search']) {
-      const global = new RegExp(esc(options['--search'], 'gi'));
-      const local  = new RegExp(esc(options['--search'], 'i'));
+      const global = new RegExp(esc(options['--search']), 'gi');
+      const local  = new RegExp(esc(options['--search']), 'i');
       entry.match(global).forEach(function(m) {
         entry = entry.replace(local, chalk[config.color.match](m));
       });
